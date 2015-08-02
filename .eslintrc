@@ -1,0 +1,198 @@
+parser: babel-eslint
+
+env:
+  browser: true
+  es6: true
+  node: true
+
+plugins:
+  - react
+
+rules:
+##
+# Possible Errors
+##
+  # 余分な括弧を禁止
+  no-extra-parens: [2, 'functions']
+  # キーに予約語の使用禁止
+  no-reserved-keys: 2
+  # 不正な JSDoc を禁止
+  valid-jsdoc:
+    - 2
+    - requireReturn: false
+      requireReturnDescription: false
+
+##
+# Best Practices
+##
+  # 複雑度
+  complexity: [1, 3]
+  # else 内 return 禁止
+  no-else-return: 2
+  # 同変数比較禁止 (x === x)
+  no-self-compare: 2
+  # リテラル例外禁止
+  no-throw-literal: 2
+
+##
+# Strict Mode
+##
+  # Strict Mode
+  strict: [2, 'global']
+
+##
+# Stylistic Issues
+##
+  # 波括弧の書き方
+  brace-style:
+    - 2
+    - 1tbs
+    - allowSingleLine: false
+  # カンマの配置
+  comma-style: [2, 'last']
+  # this の逃避変数名
+  consistent-this: [2, 'self']
+  # インデント
+  indent: [2, 2]
+  # callback ネスト数の制限
+  max-nested-callbacks: [1, 3]
+  # else 内の if 禁止
+  no-lonely-if: 2
+  # 連続空白行数の制限
+  no-multiple-empty-lines:
+    - 2
+    - max: 2
+  # ネストした三項演算子禁止
+  no-nested-ternary: 2
+  # 識別子としてのアンダースコアの使用を禁止
+  no-underscore-dangle: 0
+  # 無駄な三項演算子の禁止
+  no-unneeded-ternary: 2
+  # オブジェクトの中括弧内の空白
+  object-curly-spacing: [2, 'never']
+  # ブロック先頭末尾の空白行
+  padded-blocks: [2, 'never']
+  # プロパティキー定義のクォート
+  quote-props: [2, 'as-needed']
+  # 文字列のクォート
+  quotes: [2, 'single']
+  # 特定キーワードの後の空白
+  space-after-keywords: [2, 'always']
+  # ブロックの前の空白
+  space-before-blocks: [2, 'always']
+  # 関数の括弧前の空白
+  space-before-function-paren: [2, 'never']
+  # 括弧内の空白
+  space-in-parens: [2, 'never']
+  # 演算子まわりの空白
+  space-unary-ops:
+    - 2
+    - words: true
+      nonwords: false
+  # コメント内の空白
+  spaced-comment: 
+    - 2
+    - always
+    - exceptions: ['-+']
+
+##
+# ECMAScript 6
+##
+  # コンストラクタの super 有無
+  constructor-super: 2
+  # コンストラクタ内 super の前の this 禁止
+  no-this-before-super: 2
+  # var 禁止
+  no-var: 2
+  # ES6 のオブジェクト省略表現
+  object-shorthand: [2, 'always']
+
+##
+# Legacy
+##
+  # 1行の長さ
+  max-len: [1, 100, 2]
+  # 引数の数
+  max-params: [1, 3]
+  # 関数内の文の数
+  max-statements: [1, 12]
+
+##
+# React
+##
+  # displayName属性有無
+  react/display-name:
+    - 2
+    - acceptTranspilerName: true
+  # 暗黙の属性値trueの禁止
+  react/jsx-boolean-value: [2, 'always']
+  # 属性式内のスペース
+  react/jsx-curly-spacing:
+    - 2
+    - never
+    - allowMultiline: true
+  # 属性名の重複禁止
+  react/jsx-no-duplicate-props: 2
+  # 未定義の React コンポーネント使用を禁止
+  react/jsx-no-undef: 2
+  # JSX 属性のクオート
+  react/jsx-quotes: [2, 'double']
+  # propTypes の定義をアルファベット順
+  react/jsx-sort-prop-types: 2
+  # props の使用をアルファベット順
+  react/jsx-sort-props: 2
+  # React 的に不適切な箇所での no-unused-vars 発動禁止
+  react/jsx-uses-react: 2
+  # JSX 内で使用中の変数への no-unused-vars 発動禁止
+  react/jsx-uses-vars: 2
+  # componentDidMount 内での setState 禁止
+  react/no-did-mount-set-state: [2, 'allow-in-func']
+  # componentDidUpdate 内での setState 禁止
+  react/no-did-update-set-state: 2
+  # 1 ファイル内複数コンポーネント定義を禁止
+  react/no-multi-comp: 2
+  # 不適切な DOM 属性使用の禁止
+  react/no-unknown-property: 2
+  # propTypes 未定義の props 使用禁止
+  react/prop-types: 2
+  # JSX スコープ内の React 定義を必須化
+  react/react-in-jsx-scope: 2
+  # コンポーネントの不要な閉じタグを禁止
+  react/self-closing-comp: 2
+  # React コンポーネントメソッド定義順
+  react/sort-comp:
+    - 2
+    - order:
+      - lifecycle
+      - everything-else
+      - /^on.+$/
+      - /^get.+$/
+      - /^render.+$/
+      - render
+      groups:
+        lifecycle:
+          - displayName
+          - propTypes
+          - contextTypes
+          - childContextTypes
+          - mixins
+          - statics
+          - defaultProps
+          - state
+          - constructor
+          - getDefaultProps
+          - getInitialState
+          - getChildContext
+          - componentWillMount
+          - componentDidMount
+          - componentWillReceiveProps
+          - shouldComponentUpdate
+          - componentWillUpdate
+          - componentDidUpdate
+          - componentWillUnmount
+  # 括弧のない複数行のJSXを禁止
+  react/wrap-multilines: 2
+
+ecmaFeatures:
+  jsx: true
+  modules: true

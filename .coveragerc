@@ -1,0 +1,21 @@
+[run]
+branch = True
+
+[report]
+show_missing = False
+ignore_errors = True
+omit =
+    afadmin/settings/*
+    venv/*
+    */migrations/*
+    afadmin/wsgi.py
+    manage.py
+    fabfile.py
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if self\.debug
+    raise AssertionError
+    raise NotImplementedError
+    if 0:
+    if __name__ == .__main__.:

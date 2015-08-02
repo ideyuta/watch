@@ -1,0 +1,15 @@
+/.coverage
+/.cache/
+/htmlcov/
+
+/tmp/
+/build/
+
+# for node
+/docs/esdoc/
+/coverage/
+/node_modules/
+/dist/
+
+# electron
+/release/

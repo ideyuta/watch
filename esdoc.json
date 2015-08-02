@@ -1,0 +1,12 @@
+{
+  "source": "./src",
+  "destination": "./docs/esdoc",
+  "includes": ["\\.(js|jsx|es6)$"],
+  "excludes": ["\\.config\\.(js|jsx|es6)$", "styles/"],
+  "access": ["public", "protected", "static"],
+  "test": {
+    "type": "mocha",
+    "source": "test",
+    "includes": ["\\.(js|es6|jsx)$"]
+  }
+}
